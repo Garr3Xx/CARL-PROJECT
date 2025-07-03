@@ -1,0 +1,133 @@
+<?xml version="1.0" ?>
+<robot name="carl" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="mecanic_color" value="Gazebo/Silver"/>
+<xacro:property name="body_color" value="Gazebo/White"/>
+<xacro:property name="wheel_color" value="Gazebo/Black"/>
+<xacro:property name="lidar_color" value="Gazebo/Blue"/>
+
+
+<gazebo>
+  <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+    <parameters>$(find carl_description)/config/ros_gz_bridge_gazebo.yaml</parameters>
+  </plugin>
+  <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+    <render_engine>ogre2</render_engine>
+  </plugin>
+</gazebo>
+
+<gazebo reference="base_link">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="destra_posteriore_1_1">
+  <material>${mecanic_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="sinistra_posteriore_1_1">
+  <material>${mecanic_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="ruota_destra_anteriore_2_1">
+  <material>${mecanic_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="ruota_sinistra_anteriore_2_1">
+  <material>${mecanic_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="Inclina_ruota_destra_1_1">
+  <material>${mecanic_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="Inclina_ruota_sinistra_1_1">
+  <material>${mecanic_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="ruota_sinistra_anteriore_1_1">
+  <material>${wheel_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="ruota_destra_anteriore_1_1">
+  <material>${wheel_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="ruota_destra_posteriore_1_1">
+  <material>${wheel_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="ruota_sinistra_posteriore_1_1">
+  <material>${wheel_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="LIDAR_1">
+  <sensor name="LIDAR_1" type="gpu_lidar">
+    <gz_frame_id>LIDAR_1</gz_frame_id>
+    <topic>scan</topic>
+    <update_rate>30</update_rate>
+    <lidar>
+      <scan>
+        <horizontal>
+          <samples>2800</samples>
+          <resolution>1</resolution>
+          <min_angle>-3.14</min_angle>
+          <max_angle>3.14</max_angle>
+        </horizontal>
+        <vertical>
+          <samples>1</samples>
+          <resolution>0.1</resolution>
+          <min_angle>0.0</min_angle>
+          <max_angle>0.0</max_angle>
+        </vertical>
+      </scan>
+      <range>
+        <min>0.2</min>
+        <max>15.0</max>
+        <resolution>0.01</resolution>
+      </range>
+      <frame_id>/LIDAR_1</frame_id>
+    </lidar>
+    <alwaysOn>true</alwaysOn>
+    <visualize>true</visualize>
+  </sensor>
+  <material>${lidar_color}</material>
+  <selfCollide>false</selfCollide>
+      <mu1 value="0.05" />
+      <mu2 value="0.05" />
+</gazebo>
+
+</robot>

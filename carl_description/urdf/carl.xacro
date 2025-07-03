@@ -1,0 +1,336 @@
+<?xml version="1.0" ?>
+<robot name="carl" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find carl_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find carl_description)/urdf/carl.ros2control" />
+<xacro:include filename="$(find carl_description)/urdf/carl.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.19274272765614664 0.20667696010061948 0.1698503724518462" rpy="0 0 0"/>
+    <mass value="119.42621336084548"/>
+    <inertia ixx="4.353879" iyy="1.545392" izz="5.601709" ixy="1.8e-05" iyz="-0.030575" ixz="-1.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="destra_posteriore_1_1">
+  <inertial>
+    <origin xyz="0.07594062536046847 5.220698254173861e-15 2.42861286636753e-15" rpy="0 0 0"/>
+    <mass value="0.8700997280951979"/>
+    <inertia ixx="0.000109" iyy="0.001777" izz="0.001772" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.217744 -0.0 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/destra_posteriore_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.217744 -0.0 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/destra_posteriore_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="sinistra_posteriore_1_1">
+  <inertial>
+    <origin xyz="-0.07594062536046872 3.559100774456451e-15 -2.886579864025407e-15" rpy="0 0 0"/>
+    <mass value="0.870099728095196"/>
+    <inertia ixx="0.000109" iyy="0.001777" izz="0.001772" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.167744 -0.0 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/sinistra_posteriore_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.167744 -0.0 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/sinistra_posteriore_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ruota_destra_anteriore_2_1">
+  <inertial>
+    <origin xyz="0.019862858215798695 1.887379141862766e-15 9.71445146547012e-17" rpy="0 0 0"/>
+    <mass value="0.25792403152273063"/>
+    <inertia ixx="3.7e-05" iyy="5.8e-05" izz="5.8e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.327744 -0.4 -0.07995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/ruota_destra_anteriore_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.327744 -0.4 -0.07995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/ruota_destra_anteriore_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ruota_sinistra_anteriore_2_1">
+  <inertial>
+    <origin xyz="-0.019862858215798224 2.7755575615628914e-16 4.163336342344337e-17" rpy="0 0 0"/>
+    <mass value="0.25792403152273047"/>
+    <inertia ixx="3.7e-05" iyy="5.8e-05" izz="5.8e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.057744 -0.4 -0.07995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/ruota_sinistra_anteriore_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.057744 -0.4 -0.07995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/ruota_sinistra_anteriore_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Inclina_ruota_destra_1_1">
+  <inertial>
+    <origin xyz="0.021601012448857315 2.5424107263916085e-14 0.0099999999999998" rpy="0 0 0"/>
+    <mass value="0.2278692862256936"/>
+    <inertia ixx="2.3e-05" iyy="5.5e-05" izz="5.5e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.282744 -0.4 -0.06995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/Inclina_ruota_destra_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.282744 -0.4 -0.06995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/Inclina_ruota_destra_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Inclina_ruota_sinistra_1_1">
+  <inertial>
+    <origin xyz="-0.021601012448857204 -2.5590640717609858e-14 0.010000000000000148" rpy="0 0 0"/>
+    <mass value="0.22786928622569286"/>
+    <inertia ixx="2.3e-05" iyy="5.5e-05" izz="5.5e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.102744 -0.4 -0.06995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/Inclina_ruota_sinistra_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.102744 -0.4 -0.06995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/Inclina_ruota_sinistra_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ruota_sinistra_anteriore_1_1">
+  <inertial>
+    <origin xyz="0.020000000000000708 0.0 1.3877787807814457e-16" rpy="0 0 0"/>
+    <mass value="0.5660864943632601"/>
+    <inertia ixx="0.001729" iyy="0.000937" izz="0.000937" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.017744 -0.4 -0.07995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/ruota_sinistra_anteriore_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.017744 -0.4 -0.07995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/ruota_sinistra_anteriore_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ruota_destra_anteriore_1_1">
+  <inertial>
+    <origin xyz="-0.020000000000000018 2.275957200481571e-15 1.3877787807814457e-17" rpy="0 0 0"/>
+    <mass value="0.5660864943632605"/>
+    <inertia ixx="0.001729" iyy="0.000937" izz="0.000937" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.367744 -0.4 -0.07995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/ruota_destra_anteriore_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.367744 -0.4 -0.07995" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/ruota_destra_anteriore_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ruota_destra_posteriore_1_1">
+  <inertial>
+    <origin xyz="-0.0200000000000104 1.4045208218299016e-15 -2.220446049250313e-16" rpy="0 0 0"/>
+    <mass value="0.56608649436326"/>
+    <inertia ixx="0.001729" iyy="0.000937" izz="0.000937" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.367744 -0.0 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/ruota_destra_posteriore_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.367744 -0.0 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/ruota_destra_posteriore_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ruota_sinistra_posteriore_1_1">
+  <inertial>
+    <origin xyz="0.01999999999998774 -1.3447539783477793e-16 -5.564992910933597e-15" rpy="0 0 0"/>
+    <mass value="0.5660864943632594"/>
+    <inertia ixx="0.001729" iyy="0.000937" izz="0.000937" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.017744 -0.0 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/ruota_sinistra_posteriore_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.017744 -0.0 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/ruota_sinistra_posteriore_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="LIDAR_1">
+  <inertial>
+    <origin xyz="4.718447854656915e-16 -5.551115123125783e-17 0.012499999999999956" rpy="0 0 0"/>
+    <mass value="1.5413438956674923"/>
+    <inertia ixx="0.001044" iyy="0.001044" izz="0.001927" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.192744 -0.45 -0.25" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/LIDAR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.192744 -0.45 -0.25" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find carl_description)/meshes/LIDAR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+<joint name="Ruota_destra_posteriore" type="continuous">
+  <origin xyz="0.217744 0.0 0.08" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="destra_posteriore_1_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="Ruota_sinistra_posteriore" type="continuous">
+  <origin xyz="0.167744 0.0 0.08" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="sinistra_posteriore_1_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Ruota_destra_anteriore" type="continuous">
+  <origin xyz="0.045 0.0 0.01" rpy="0 0 0"/>
+  <parent link="Inclina_ruota_destra_1_1"/>
+  <child link="ruota_destra_anteriore_2_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Ruota_sinistra_anteriore" type="continuous">
+  <origin xyz="-0.045 0.0 0.01" rpy="0 0 0"/>
+  <parent link="Inclina_ruota_sinistra_1_1"/>
+  <child link="ruota_sinistra_anteriore_2_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Inclina_destra_anteriore" type="revolute">
+  <origin xyz="0.282744 0.4 0.06995" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Inclina_ruota_destra_1_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.523599" lower="-0.523599" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Inclina_sinistra_anteriore" type="revolute">
+  <origin xyz="0.102744 0.4 0.06995" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Inclina_ruota_sinistra_1_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.523599" lower="-0.523599" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Rigido 62" type="fixed">
+  <origin xyz="-0.04 0.0 0.0" rpy="0 0 0"/>
+  <parent link="ruota_sinistra_anteriore_2_1"/>
+  <child link="ruota_sinistra_anteriore_1_1"/>
+</joint>
+
+<joint name="Rigido 63" type="fixed">
+  <origin xyz="0.04 0.0 0.0" rpy="0 0 0"/>
+  <parent link="ruota_destra_anteriore_2_1"/>
+  <child link="ruota_destra_anteriore_1_1"/>
+</joint>
+
+<joint name="Rigido 64" type="fixed">
+  <origin xyz="0.15 0.0 0.0" rpy="0 0 0"/>
+  <parent link="destra_posteriore_1_1"/>
+  <child link="ruota_destra_posteriore_1_1"/>
+</joint>
+
+<joint name="Rigido 65" type="fixed">
+  <origin xyz="-0.15 0.0 0.0" rpy="0 0 0"/>
+  <parent link="sinistra_posteriore_1_1"/>
+  <child link="ruota_sinistra_posteriore_1_1"/>
+</joint>
+
+<joint name="LIDAR" type="fixed">
+  <origin xyz="0.192744 0.45 0.25" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="LIDAR_1"/>
+</joint>
+
+
+
+</robot>

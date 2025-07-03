@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="Robot">
+  <xacro:include filename="carl.xacro" />
+  <xacro:include filename="carl.gazebo" />
+  <xacro:include filename="carl.ros2control" />
+</robot>
